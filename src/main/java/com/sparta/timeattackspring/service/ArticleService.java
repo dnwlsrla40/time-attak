@@ -16,7 +16,10 @@ public class ArticleService {
 
     @Transactional
     public void save(ArticleDto articleDto){
-        Article article = new Article(articleDto.getContent());
+        Article article = Article.builder()
+                .title(articleDto.getTitle())
+                .content(articleDto.getContent())
+                .build();
         articleRepository.save(article);
     }
 

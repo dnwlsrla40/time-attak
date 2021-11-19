@@ -16,8 +16,10 @@ public class ArticleController {
     private final ArticleService articleService;
 
     @PostMapping("/article")
-    public void saveArticle(@RequestBody ArticleDto articleDto) {
+    public String saveArticle(@RequestBody ArticleDto articleDto) {
         articleService.save(articleDto);
+        String msg = "포스팅 업데이트 성공";
+        return msg;
     }
 
     @GetMapping("/articles")
